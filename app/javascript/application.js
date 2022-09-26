@@ -2,10 +2,21 @@
 // import "@hotwired/turbo-rails";
 // import "./controllers";
 import React from "react";
-import ReactDOM from "react-dom";
+import ReactDOM from "react-dom/client";
+import store from "./redux/store";
+import { Provider } from "react-redux";
+import { fetchGreet } from "./redux/messageReducer";
+import { BrowserRouter } from "react-router-dom";
+import App from "./components/App";
 
-function App() {
-  return <h1>Hello World! This is react in rails !</h1>;
-}
-
-ReactDOM.render(<App />, document.getElementById("root"));
+store.dispatch(fetchGreet());
+const root = ReactDOM.createRoot(document.getElementById("root"));
+root.render(
+  <React.StrictMode>
+    <BrowserRouter>
+      <Provider store={store}>
+        <App />
+      </Provider>
+    </BrowserRouter>
+  </React.StrictMode>
+);
