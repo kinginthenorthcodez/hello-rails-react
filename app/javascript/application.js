@@ -3,10 +3,10 @@
 // import "./controllers";
 import React from "react";
 import ReactDOM from "react-dom/client";
-import store from "./redux/store";
-import { Provider } from "react-redux";
-import { fetchGreet } from "./redux/messageReducer";
 import { BrowserRouter } from "react-router-dom";
+import { Provider } from "react-redux";
+import store from "./redux/store";
+import { fetchGreet } from "./redux/messageReducer";
 import App from "./components/App";
 
 store.dispatch(fetchGreet());
